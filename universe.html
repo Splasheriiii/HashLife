@@ -1,0 +1,49 @@
+<html>
+  <script src="./jquery-3.6.0.js"></script>
+  <script src="./universeManager.js"></script>
+  <script src="./universe.js"></script>
+  <head>
+    <link rel="stylesheet" href="./universe.css">    
+  </head>
+  <body>
+    <div id="mainMenu" class="sidebar disabled">
+      <div id="createMenu" class="sidebar-content">
+        <div class="sidebar-group">
+          <label for="level">Выберите размер поля</label>
+          <select id="level" class="round">
+            <option value="4" selected>16x16</option>
+            <option value="5">32x32</option>
+            <option value="6">64x64</option>
+            <option value="7">128x128</option>
+            <option value="8">256x256</option>
+            <option value="9">512x512</option>
+            <!-- <option value="10">1024x1024</option>
+            <option value="11">2048x2048</option>
+            <option value="12">4096x4096</option>
+            <option value="13">8192x8192</option>
+            <option value="14">16384x16384</option>
+            <option value="15">32768x32768</option> -->
+          </select>
+        </div>
+        <button id="createUniverse" class="round">
+          Создать игровое поле
+        </button>
+      </div>
+      <div id="gameMenu" class="sidebar-content disabled">
+        <button id="nextGeneration" class="round">
+          Следующая итерация
+        </button>
+        <button id="previousGeneration" class="round">
+          Предыдущая итерация
+        </button>
+        <button id="stopGame" class="round">
+          Завершить игру
+        </button>
+      </div>
+    </div>
+    <div id="life" class="game-field">
+      <div id="quads" class="quad-container">
+      </div>
+    </div>
+  </body>
+</html>
