@@ -120,9 +120,20 @@ class UniverseManager {
         if(this.rootLevel < this.level) {
             this.normalisationMarker = true;
         }        
+        if (this.universe != null)
+        {
+            this.universe.delete();
+        }
         this.universe = new Module.Universe(this.level, this.rootLevel, this.generations[this.generation])
         console.log(this.generations[this.generation].replaceAll(";", "\n"));
     }
+    showHashList()
+    {
+        let list = new Module.StringList();
+        this.universe.get_hash_list(list);
+        alert(`Количество хэшированых квадратов - ${list.size()}`);
+        list.delete();
+    }        
 }
 
 class Quad {
@@ -169,6 +180,10 @@ $(document).ready(function(){
    $("#previousGeneration").click(function (e) { 
        e.preventDefault();
        universeManager.prevGeneration()        
+   });
+   $("#showHashList").click(function (e) { 
+       e.preventDefault();
+       universeManager.showHashList()        
    });
    $("#stopGame").click(function (e) { 
         universeManager = null;

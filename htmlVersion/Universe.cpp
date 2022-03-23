@@ -1,6 +1,7 @@
 #include "MemoizedQuadTree.h"
 #include <math.h>
 #include <string>
+#include <vector>
 
 #ifdef __EMSCRIPTEN__
 	#include <emscripten/bind.h>
@@ -65,16 +66,23 @@ public:
 		}
 		return content;
 	}
+	void get_hash_list(std::vector<std::string> &res)
+	{
+		((MemoizedQuadTree*)root)->get_hash_list(&res);
+	}
+
 private:
 	int level;
 	QuadTree* root;
 
 #ifdef __EMSCRIPTEN__
-	EMSCRIPTEN_BINDINGS(my_class_example) {
+	EMSCRIPTEN_BINDINGS(my_class_example) {   
   class_<Universe>("Universe")
     .constructor<int, int, std::string>()
     .function("next_generation", &Universe::next_generation)
-	.function("to_string", &Universe::to_string);
+	.function("to_string", &Universe::to_string)
+	.function("get_hash_list", &Universe::get_hash_list);
+  register_vector<std::string>("StringList"); 
 }
 #endif	
 	

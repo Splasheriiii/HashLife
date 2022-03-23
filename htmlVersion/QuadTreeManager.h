@@ -1,6 +1,7 @@
 #pragma once
 #include <unordered_map>
 #include <vector>
+#include <string>
 #include "QuadTree.h"
 
 
@@ -35,6 +36,13 @@ public:
 	void set_res_value(long hash, long res_hash)
 	{
 		hash_res_map[hash] = res_hash;
+	}
+	void get_hash_list(std::vector<std::string>* res)
+	{
+		for (std::unordered_map<long, QuadTree*>::iterator it = hash_map.begin(); it != hash_map.end(); ++it)
+		{
+			res->push_back(std::to_string(it->first));
+		}				
 	}
 private:
 	QuadTreeManager(){}

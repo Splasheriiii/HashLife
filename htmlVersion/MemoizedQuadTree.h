@@ -26,6 +26,15 @@ EMSCRIPTEN_KEEPALIVE
 	{
 		return (new MemoizedQuadTree(false))->Create(lvl, values, start_x, start_y);
 	}
+	
+	void 
+#ifdef __EMSCRIPTEN__
+EMSCRIPTEN_KEEPALIVE
+#endif
+	get_hash_list(std::vector<std::string>* res)
+	{
+		get_fabric()->get_hash_list(res);
+	}
 protected:
 	QuadTree* 
 #ifdef __EMSCRIPTEN__

@@ -1,0 +1,1 @@
+emcc -lembind -o universe.js universe.cpp -s ALLOW_MEMORY_GROWTH=1 -std=c++17

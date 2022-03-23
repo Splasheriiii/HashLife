@@ -52,10 +52,10 @@ body{
     height: 100%;
 }
 .quad-container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     height: 100%;
 }
 .quad-row {    
